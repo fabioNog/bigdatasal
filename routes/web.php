@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PsociosController;
+use App\Http\Controllers\ProponenteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/proponentes', [ProponenteController::class, 'index'])->name('proponentes.index');
+    Route::get('/psocios', [PsociosController::class, 'index'])->name('psocios.index');
+    Route::post('/psocios', [PsociosController::class, 'store'])->name('psocios.store');
 });
 
 require __DIR__.'/auth.php';
