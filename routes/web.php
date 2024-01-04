@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/proponentes', [ProponenteController::class, 'index'])->name('proponentes.index');
     Route::get('/psocios', [PsociosController::class, 'index'])->name('psocios.index');
     Route::post('/psocios', [PsociosController::class, 'store'])->name('psocios.store');
+
 });
 
 require __DIR__.'/auth.php';

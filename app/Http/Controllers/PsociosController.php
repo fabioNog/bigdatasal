@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Psocios;
 
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PsociosController extends Controller
 {
 
-    public function index(){
-        return view('psociosform');
+
+    public function index(): View{
+        return view('psocios.index');
     }
 
     public function store(Request $request)
@@ -63,10 +65,11 @@ class PsociosController extends Controller
         // Crie um novo objeto Psocios e atribua os valores do formulário
         $psocio = new Psocios($request->all());
 
+      //  dd($psocio);
 
         // Salve o objeto no banco de dados
         $psocio->save();
 
-        return redirect()->route('psocios.index')->with('success', 'Dados do sócio inseridos com sucesso!');
+        return redirect()->route('dashboard')->with('success', 'Dados do sócio inseridos com sucesso!');
     }
 }
